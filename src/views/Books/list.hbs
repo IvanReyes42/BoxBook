@@ -1,0 +1,53 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-10">
+            <form action="/Mybooks/search" method="post">
+                <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="Search" name="Title" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="col-md-2">
+            <a href="/Mybooks/add" class="btn btn-primary"> Add New Book </a>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row">
+        {{#each Books}}
+            <div class="col-md-4 p-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="{{CoverPage}}" alt="">
+                        <p class="card-title text-uppercase">
+                            {{Title}}
+                        </p>
+
+                        <p>Qualification: {{Qualification}} Star(s)</p>
+                        
+                   
+                    <a href="/Mybooks/edit/{{IdBook}}" class="btn btn-secondary">More</a>
+                    <a href="/Mybooks/delete/{{IdBook}}" class="btn btn-danger">Delete</a>
+                    
+                </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>There are not books saved yet</p> 
+                    <a href="/Mybooks/add">Add new book</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

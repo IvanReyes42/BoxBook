@@ -1,0 +1,120 @@
+<div class="conteiner p-4 ">
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="card">
+                <div class="card-header centrar">
+                    <p>{{Libro.Title}}</p>
+                </div>
+                <div class="card-body">
+                 
+                    <div class="row p-2">
+                        
+                        <div class="col-md-12 col-lg-6  centrar">
+                            
+                            <img src="{{Libro.CoverPage}}" class="img-fluid" alt="">
+                            
+                        </div>
+                        <div class="col-md-12 col-lg-6  centrar">
+                            <p class="card-title">ISBN: {{Libro.ISBN}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-12 col-lg-6">
+                            <p>Author: {{Libro.Authors}}</p>
+                            <p>Editorial: {{Libro.Editoral}}</p>
+                        
+                        </div>
+                        <div class="col-md-13 col-lg-6">
+                            <p>Gender: {{Libro.Gender}}</p>
+                            <p>Year: {{Libro.Year}}</p>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-12 xm-auto">
+                            <p>Review: {{Libro.Review}}</p>
+                            <p>Qualification: {{Libro.Qualification}}</p>
+                            <p>Status: {{Libro.Status}}</p>
+                        </div>
+                    </div> 
+                    
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+            <div class="row">
+                <div class="col-md-12 border border-dark rounded text-right">
+                    <h5 class="p-1">Share by user {{User.UserName}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <h5>Progress</h5>
+                </div>
+            </div>
+            <div class="row p-4">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Percentaje</th>
+                        <th scope="col">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each Progress}}
+                        <tr>
+                        <th scope="row">{{IdProgress}}</th>
+                        <td>{{Percentage}} %</td>
+                        <td>{{comment}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                    </table>
+            </div>
+
+            
+            <div class="row p-4">
+                <div class="col-md-12">
+                    <h5>Comments </h5>
+                    {{#if user}}
+                    <form action="/addcomment/{{Libro.IdBook}}" method="post">
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Comment" name="Comment" autofocus>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-block">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            
+            <div class="row- p-4">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">Comments</th>
+                         <th scope="col">User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each Comments}}
+                        <tr>
+                        <td scope="row">{{comment}}</td>
+                        <td scope="row">{{UserName}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                    </table>
+            </div>
+
+        
+
+        </div>
+    </div>
+</div>

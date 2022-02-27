@@ -1,0 +1,52 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/search" method="post">
+                <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="Search" name="Title" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div class="row pt-5">
+        <div class="col-md-12 text-center">
+          {{#if Title }}
+                <h4>Libros Más Populares Con "{{Title}}"</h4>
+          {{/if}}  
+          {{#xif Title "" }}
+                <h4>Libros Más Populares</h4>
+          {{/xif}}
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row">
+        {{#each Books}}
+            <div class="col-md-4 p-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="{{CoverPage}}" alt="">
+                        <p class="card-title text-uppercase">
+                            {{Title}}
+                        </p>
+
+                        <p>Qualification: {{Qualification}} Star(s)</p>
+                        
+                   
+                    <a href="/viewmore/{{IdBook}}" class="btn btn-secondary">More</a>
+                    
+                </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="conteiner p-4 ">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/MyBooks/add" method="POST">
+                    <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="ISBN" name="ISBN" value="{{ISBN}}" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                    </div>
+                </form>
+            
+                {{#if Libro}}
+                    <div class="row p-2">
+                        <div class="col-md-12 col-lg-6  centrar">
+                            
+                            <img src="{{Libro.Image}}" class="img-fluid" alt="">
+                            
+                        </div>
+                        <div class="col-md-12 col-lg-6  centrar">
+                            <p>Title: {{Libro.Title}}</p>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-12 col-lg-6">
+                            <p>Author: {{Libro.Author}}</p>
+                            <p>Editorial: {{Libro.Editorial}}</p>
+                        
+                        </div>
+                        <div class="col-md-13 col-lg-6">
+                            <p>Gender: {{Libro.Gender}}</p>
+                            <p>Year: {{Libro.Year}}</p>
+                        </div>
+                    </div>
+                        
+                    <form action="/MyBooks/save" method="POST">
+                    <div class="form-group">  
+                        <textarea name="Review" id=""  rows="2" class="form-control" placeholder="Review"></textarea>
+                    </div>
+                    <div class="form-group">
+                         <input type="hidden" class="form-control" placeholder="ISBN" name="ISBN" value="{{Libro.ISBN}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="Qualification">Qualification</label>
+                        <select id="Qualification" class="form-control" name="Qualification">
+                            <option selected value="5"> ☆ ☆ ☆ ☆ ☆ </option>
+                            <option value="4">☆ ☆ ☆ ☆</option>
+                            <option value="3">☆ ☆ ☆</option>
+                            <option value="2">☆ ☆ </option>
+                            <option value="1">☆</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="Status">Status</label>
+                        <select id="Status" class="form-control" name="Status">
+                            <option selected value="1"> To Read</option>
+                            <option value="2">Reading</option>
+                            <option value="3">Finished</option>
+                        </select>
+                    </div>
+                    <div class="form-group">  
+                        <button class="btn btn-success btn-block">Save</button>
+                    </div>
+                    
+                    </form>
+                
+                {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

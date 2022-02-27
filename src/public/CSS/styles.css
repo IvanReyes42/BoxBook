@@ -1,0 +1,15 @@
+body{
+    background: #f5f6f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.centrar{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+}

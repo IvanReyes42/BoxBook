@@ -1,0 +1,173 @@
+<div class="conteiner p-4 ">
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="card">
+                <div class="card-header centrar">
+                    <p>{{Libro.Title}}</p>
+                </div>
+                <div class="card-body">
+                 
+                    <div class="row p-2">
+                        
+                        <div class="col-md-12 col-lg-6  centrar">
+                            
+                            <img src="{{Libro.CoverPage}}" class="img-fluid" alt="">
+                            
+                        </div>
+                        <div class="col-md-12 col-lg-6  centrar">
+                            <p class="card-title">ISBN: {{Libro.ISBN}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-12 col-lg-6">
+                            <p>Author: {{Libro.Author}}</p>
+                            <p>Editorial: {{Libro.Editorial}}</p>
+                        
+                        </div>
+                        <div class="col-md-13 col-lg-6">
+                            <p>Gender: {{Libro.Gender}}</p>
+                            <p>Year: {{Libro.Year}}</p>
+                        </div>
+                    </div>
+                        
+                    <form action="/Mybooks/edit/{{Libro.IdBook}}" method="POST">
+                    <div class="form-group">  
+                        <textarea name="Review" id=""  rows="2" class="form-control" placeholder="Review">{{Libro.Review}}</textarea>
+                    </div>
+                    <div class="form-group">
+                         <input type="hidden" class="form-control" placeholder="ISBN" name="ISBN" value="{{Libro.ISBN}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="inputState">Qualification</label>
+                        
+                        {{#xif Libro.Qualification 5 }}
+                        <select id="inputState" class="form-control" name="Qualification">
+                            <option selected value="5"> ☆ ☆ ☆ ☆ ☆ </option>
+                            <option value="4">☆ ☆ ☆ ☆</option>
+                            <option value="3">☆ ☆ ☆</option>
+                            <option value="2">☆ ☆ </option>
+                            <option value="1">☆</option>
+                        </select>
+                        {{/xif}}
+
+                        {{#xif Libro.Qualification 4 }}
+                        <select id="inputState" class="form-control" name="Qualification">
+                            <option  value="5"> ☆ ☆ ☆ ☆ ☆ </option>
+                            <option selected value="4">☆ ☆ ☆ ☆</option>
+                            <option value="3">☆ ☆ ☆</option>
+                            <option value="2">☆ ☆ </option>
+                            <option value="1">☆</option>
+                        </select>
+                        {{/xif}}
+
+                        {{#xif Libro.Qualification 3 }}
+                        <select id="inputState" class="form-control" name="Qualification">
+                            <option  value="5"> ☆ ☆ ☆ ☆ ☆ </option>
+                            <option value="4">☆ ☆ ☆ ☆</option>
+                            <option selected value="3">☆ ☆ ☆</option>
+                            <option value="2">☆ ☆ </option>
+                            <option value="1">☆</option>
+                        </select>
+                        {{/xif}}
+
+                        {{#xif Libro.Qualification 2 }}
+                        <select id="inputState" class="form-control" name="Qualification">
+                            <option value="5"> ☆ ☆ ☆ ☆ ☆ </option>
+                            <option value="4">☆ ☆ ☆ ☆</option>
+                            <option value="3">☆ ☆ ☆</option>
+                            <option selected value="2">☆ ☆ </option>
+                            <option value="1">☆</option>
+                        </select>
+                        {{/xif}}
+
+                        {{#xif Libro.Qualification 1 }}
+                        <select id="inputState" class="form-control" name="Qualification">
+                            <option value="5"> ☆ ☆ ☆ ☆ ☆ </option>
+                            <option value="4">☆ ☆ ☆ ☆</option>
+                            <option value="3">☆ ☆ ☆</option>
+                            <option value="2">☆ ☆ </option>
+                            <option selected  value="1">☆</option>
+                        </select>
+                        {{/xif}}
+
+                        {{#zif Libro.Status "To read"}}
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                    <select id="Status" class="form-control" name="Status">
+                                        <option selected value="1"> To Read</option>
+                                        <option value="2">Reading</option>
+                                        <option value="3">Finished</option>
+                                    </select>
+                            </div>
+                        {{/zif}}
+
+                        {{#zif Libro.Status "Reading"}}
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                    <select id="Status" class="form-control" name="Status">
+                                        <option value="1"> To Read</option>
+                                        <option selected value="2">Reading</option>
+                                        <option value="3">Finished</option>
+                                    </select>
+                            </div>
+                        {{/zif}}
+
+                        {{#zif Libro.Status "Finished"}}
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                    <select id="Status" class="form-control" name="Status">
+                                        <option value="1"> To Read</option>
+                                        <option value="2">Reading</option>
+                                        <option selected value="3">Finished</option>
+                                    </select>
+                            </div>
+                        {{/zif}}
+
+                    </div>
+                    
+                    <div class="form-group">  
+                        <button class="btn btn-success btn-block">Save</button>
+                    </div>
+                    </form>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Progress</h5>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Add Progress
+                    </button>
+                </div>
+            </div>
+            <div class="row p-4">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Percentaje</th>
+                        <th scope="col">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each Progress}}
+                        <tr>
+                        <th scope="row">{{IdProgress}}</th>
+                        <td>{{Percentage}} %</td>
+                        <td>{{comment}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>addprogress}}
