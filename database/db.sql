@@ -5,7 +5,10 @@ create table Users(
     IdUser int primary key AUTO_INCREMENT,
     UserName varchar(50) not null,
     password varchar(60) not null,
-    FullName varchar(50) not null
+    FullName varchar(50) not null,
+    Gender enum('Man','Woman') not null,
+    Imagen varchar(50) not null,
+    Goals int not null
 );
 
 create table Books(

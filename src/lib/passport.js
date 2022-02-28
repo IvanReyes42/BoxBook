@@ -36,18 +36,52 @@ passport.use('local.Register', new Localstrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req,username,password,done)=>{
-    const { fullname } = req.body;
-    const newUser = {
-        username,
-        password,
-        fullname
-    };
-    //console.log(newUser);
-    newUser.password = await helpers.encryptPassword(password);
-    const resul = await pool.query('Insert into users set ?',[newUser])
-    newUser.IdUser = resul.insertId;
-    //console.log(newUser.idUser);
-    return done(null, newUser);
+    const { fullname, Gender } = req.body;
+    
+    if(Gender == 1){
+        const newUser = {
+            username,
+            password,
+            fullname,
+            Gender,
+            Imagen: 'ManProfile.png',
+            Goals: 1
+        };
+        newUser.password = await helpers.encryptPassword(password);
+        const resul = await pool.query('Insert into users set ?',[newUser])
+        newUser.IdUser = resul.insertId;
+        return done(null, newUser);
+    }
+    else if(Gender == 2){
+        const newUser = {
+            username,
+            password,
+            fullname,
+            Gender,
+            Imagen: 'WomanProfile.png',
+            Goals: 1
+        };
+        newUser.password = await helpers.encryptPassword(password);
+        const resul = await pool.query('Insert into users set ?',[newUser])
+        newUser.IdUser = resul.insertId;
+        return done(null, newUser);
+    }
+    else{
+        const newUser = {
+            username,
+            password,
+            fullname,
+            Gender,
+            Imagen: '',
+            Goals: 1
+        };
+        newUser.password = await helpers.encryptPassword(password);
+        const resul = await pool.query('Insert into users set ?',[newUser])
+        newUser.IdUser = resul.insertId;
+        return done(null, newUser);
+    }
+
+    
 }));
 
 passport.serializeUser((user,done)=>{

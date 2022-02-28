@@ -1,4 +1,13 @@
 <div class="container p-4">
+
+    <div class="row text-center">
+        <div class="col-md-6 mx-auto">
+            <h1>Welcome to BoxBook</h1>
+            <p>Your Online Library</p>
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="col-md-12">
             <form action="/search" method="post">
@@ -28,11 +37,11 @@
     </div>
 </div>
 
-<div class="container p-4">
+<div class="container p-4 Busqueda">
     <div class="row">
         {{#each Books}}
             <div class="col-md-4 p-2">
-                <div class="card text-center">
+                <div class="card text-center rounded">
                     <div class="card-body">
                         <img src="{{CoverPage}}" alt="">
                         <p class="card-title text-uppercase">

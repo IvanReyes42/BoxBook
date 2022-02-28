@@ -1,0 +1,40 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            
+                                <img src="images/{{user.Imagen}}" alt="" class="img-fluid">
+
+                            <section>
+                                <form action="/upload" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Change Profile Image</label>
+                                    <input type="file" accept=".jpg,.png,.jpeg,.gif" class="form-control-file" name="file">
+                                </div>
+                                
+                                <div class="form-group">  
+                                    <button class="btn btn-success btn-block">Change Image</button>
+                                </div>
+                                
+                            </form>
+                            </section>
+                        </div>
+                        <div class="col-lg-6 col-md-12 ">
+                            <h5>User Name: {{user.UserName}}</h5>
+                            <h5>Full Name: {{user.FullName}}</h5>
+                            <h5>Gender: {{user.Gender}}</h5>
+                            <h5>Goal: {{user.Goals}} Book(s)</h5>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EditGoal">
+                                Edit Goal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{>editGoal}}

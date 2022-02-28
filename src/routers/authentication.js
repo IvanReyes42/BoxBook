@@ -10,7 +10,7 @@ router.get('/Register',isNotLoggedin,controller.Register);
 router.post('/Register',isNotLoggedin,controller.AddRegister);
 router.get('/Login',isNotLoggedin,controller.ViewLogin);
 router.post('/Login',isNotLoggedin,controller.Login);
-router.get('/profile',isLoggedIn,controller.Profile);
+router.get('/Welcome',isLoggedIn,controller.Welcome);
 router.get('/logout',isLoggedIn,controller.LogOut);
 
 module.exports = router;

@@ -45,8 +45,8 @@
 
         <div class="col-md-12 col-lg-6">
             <div class="row">
-                <div class="col-md-12 border border-dark rounded text-right">
-                    <h5 class="p-1">Share by user {{User.UserName}}</h5>
+                <div class="col-md-12 text-right">
+                    <h5 class="p-1">Share by user {{User.UserName}}</h5> 
                 </div>
             </div>
             <div class="row">
@@ -90,12 +90,10 @@
                             </div>
                         </div>
                     </form>
+                    <br>
                     {{/if}}
-                </div>
-            </div>
-            
-            <div class="row- p-4">
-                <table class="table">
+
+                    <table class="table">
                     <thead class="thead-light">
                         <tr>
                         <th scope="col">Comments</th>
@@ -106,11 +104,16 @@
                     {{#each Comments}}
                         <tr>
                         <td scope="row">{{comment}}</td>
-                        <td scope="row">{{UserName}}</td>
+                        <td scope="row">{{UserName}} </td>
                         </tr>
                     {{/each}}
                     </tbody>
                     </table>
+                </div>
+            </div>
+            
+            <div class="row- p-4">
+                
             </div>
 
         

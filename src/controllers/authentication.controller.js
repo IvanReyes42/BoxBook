@@ -11,7 +11,7 @@ class IndexController {
     //Agregar Usuarios
     AddRegister(req, res,next) {
         passport.authenticate('local.Register',{
-            successRedirect: '/profile',
+            successRedirect: '/Welcome',
             failuredRedirect: '/Register',
             failureFlash:true
         })(req,res,next);
@@ -25,15 +25,17 @@ class IndexController {
     //Evento de logearse
     Login(req, res,next) {
         passport.authenticate('local.signin',{
-            successRedirect:'/profile',
+            successRedirect:'/Welcome',
             failureRedirect:'/Login',
             failureFlash: true
         })(req,res,next);
     }
 
     //Abrir vista perfil
-    Profile(req, res) {
-        res.render('profile')
+    
+
+    Welcome(req, res) {
+        res.render('Index/Welcome')
     }
     //Terminar Seccion 
     LogOut(req,res){

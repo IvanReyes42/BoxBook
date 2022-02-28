@@ -13,3 +13,63 @@ p{
   font-family: 'Roboto', sans-serif;
   font-size: large;
 }
+
+.icono{
+  height: 100%;
+  width: 100%;
+}
+
+
+.navbar{
+  background: #121f33;
+}
+
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: white;
+}
+
+.navbar-brand{
+  color: white;
+}
+
+.navbar-brand:hover{
+  color: white;
+}
+.dropdown-menu{
+  color: black;
+  background-color: white;
+}
+
+.btn-secondary{
+  background: #125564;
+  border: #125564;
+}
+.btn-secondary:hover{
+  background: #0843c5;
+  border: #0843c5;
+}
+.btn-success{
+  background: #e66e25;
+  border: #e66e25;
+}
+
+.btn-success:hover{
+  background: #ffce52;
+  border: #ffce52
+}
+
+.card-header{
+  background: #f1c676;
+}
+
+.btn-primary{
+  background: #125564;
+  border: #125564;
+}
+.btn-primary:hover{
+  background: #0843c5;
+  border: #0843c5;
+}

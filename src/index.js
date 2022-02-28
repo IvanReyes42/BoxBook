@@ -6,6 +6,10 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const mysqlstore = require('express-mysql-session');
 const passport = require('passport');
+const cors = require('cors');
+const multer = require('multer');
+const sharp = require('sharp');
+
 
 
 const {database} = require('./keys')
@@ -44,6 +48,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 
 
 //Variables Globales Global Variables

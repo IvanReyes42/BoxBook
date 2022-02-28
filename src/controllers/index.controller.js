@@ -32,7 +32,7 @@ class IndexController {
         const Users = await pool.query(`select * from Users where IdUser =${FkIdUser}`)
         const Progress = await pool.query(`select * from Progress where FkIdBook = ${IdBook}`);
         const Comments = await pool.query(`select comment, UserName from Comments, Users where FkIdUser = IdUser and FkIdBook = ${IdBook}`)
-       // console.log(Users[0].UserName);
+       //console.log(Users[0].Imagen);
         res.render('Index/viewmore',{Libro:Libros[0],Progress, User:Users[0],Comments})
     }
 
@@ -50,6 +50,32 @@ class IndexController {
         res.redirect('/viewmore/'+IdBook);
     }
 
+    Profile(req, res) {
+      res.render('Index/Profile')
+    }
+
+    async UpdateImage(req,res){
+      const NewUser = {
+        Imagen:req.file.filename
+      }
+      console.log(NewUser);
+      await pool.query('Update Users set Imagen =? where IdUser =?',[NewUser.Imagen,req.user.IdUser]);
+      req.flash('success','Imagen changed successfully');
+      res.redirect('/Profile');
+      //res.send({data: 'Imagen Cargada'})
+    }
+
+    async UpdateGoal(req,res){
+      const {Goal} = req.body;
+      const NewUser = {
+        Goals:Goal
+      }
+      console.log(NewUser);
+      await pool.query('Update Users set Goals =? where IdUser =?',[NewUser.Goals,req.user.IdUser]);
+      req.flash('success','Goal changed successfully');
+      res.redirect('/Profile');
+
+    }
   }
   
   module.exports = IndexController;
